@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateStudentTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateStudentLabel_idStudenta}" for="idStudenta" />
+                    <h:inputText id="idStudenta" value="#{studentController.selected.idStudenta}" title="#{bundle.CreateStudentTitle_idStudenta}" required="true" requiredMessage="#{bundle.CreateStudentRequiredMessage_idStudenta}"/>
+                    <h:outputLabel value="#{bundle.CreateStudentLabel_pesel}" for="pesel" />
+                    <h:inputText id="pesel" value="#{studentController.selected.pesel}" title="#{bundle.CreateStudentTitle_pesel}" required="true" requiredMessage="#{bundle.CreateStudentRequiredMessage_pesel}"/>
+                    <h:outputLabel value="#{bundle.CreateStudentLabel_imie}" for="imie" />
+                    <h:inputText id="imie" value="#{studentController.selected.imie}" title="#{bundle.CreateStudentTitle_imie}" required="true" requiredMessage="#{bundle.CreateStudentRequiredMessage_imie}"/>
+                    <h:outputLabel value="#{bundle.CreateStudentLabel_nazwisko}" for="nazwisko" />
+                    <h:inputText id="nazwisko" value="#{studentController.selected.nazwisko}" title="#{bundle.CreateStudentTitle_nazwisko}" required="true" requiredMessage="#{bundle.CreateStudentRequiredMessage_nazwisko}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{studentController.create}" value="#{bundle.CreateStudentSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{studentController.prepareList}" value="#{bundle.CreateStudentShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateStudentIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

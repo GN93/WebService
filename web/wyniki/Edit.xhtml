@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditWynikiTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditWynikiLabel_idWyniku}" for="idWyniku" />
+                    <h:inputText id="idWyniku" value="#{wynikiController.selected.idWyniku}" title="#{bundle.EditWynikiTitle_idWyniku}" required="true" requiredMessage="#{bundle.EditWynikiRequiredMessage_idWyniku}"/>
+                    <h:outputLabel value="#{bundle.EditWynikiLabel_data}" for="data" />
+                    <h:inputText id="data" value="#{wynikiController.selected.data}" title="#{bundle.EditWynikiTitle_data}" required="true" requiredMessage="#{bundle.EditWynikiRequiredMessage_data}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditWynikiLabel_idStudenta}" for="idStudenta" />
+                    <h:selectOneMenu id="idStudenta" value="#{wynikiController.selected.idStudenta}" title="#{bundle.EditWynikiTitle_idStudenta}" required="true" requiredMessage="#{bundle.EditWynikiRequiredMessage_idStudenta}">
+                        <f:selectItems value="#{studentController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditWynikiLabel_idPrzedmiotu}" for="idPrzedmiotu" />
+                    <h:selectOneMenu id="idPrzedmiotu" value="#{wynikiController.selected.idPrzedmiotu}" title="#{bundle.EditWynikiTitle_idPrzedmiotu}" required="true" requiredMessage="#{bundle.EditWynikiRequiredMessage_idPrzedmiotu}">
+                        <f:selectItems value="#{przedmiotController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditWynikiLabel_idOceny}" for="idOceny" />
+                    <h:selectOneMenu id="idOceny" value="#{wynikiController.selected.idOceny}" title="#{bundle.EditWynikiTitle_idOceny}" required="true" requiredMessage="#{bundle.EditWynikiRequiredMessage_idOceny}">
+                        <f:selectItems value="#{ocenaController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{wynikiController.update}" value="#{bundle.EditWynikiSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditWynikiViewLink}"/>
+                <br />
+                <h:commandLink action="#{wynikiController.prepareList}" value="#{bundle.EditWynikiShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditWynikiIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
