@@ -109,7 +109,7 @@ public class Ocena implements Serializable {
 
     @Override
     public String toString() {
-        return "entityClasses.Ocena[ idOceny=" + idOceny + " ]";
+        return opis;
     }
     
 }

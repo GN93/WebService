@@ -15,9 +15,7 @@
             </h:panelGroup>
             <h:form>
                 <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.EditStudentLabel_idStudenta}" for="idStudenta" />
-                    <h:inputText id="idStudenta" value="#{studentController.selected.idStudenta}" title="#{bundle.EditStudentTitle_idStudenta}" required="true" requiredMessage="#{bundle.EditStudentRequiredMessage_idStudenta}"/>
-                    <h:outputLabel value="#{bundle.EditStudentLabel_pesel}" for="pesel" />
+                   <h:outputLabel value="#{bundle.EditStudentLabel_pesel}" for="pesel" />
                     <h:inputText id="pesel" value="#{studentController.selected.pesel}" title="#{bundle.EditStudentTitle_pesel}" required="true" requiredMessage="#{bundle.EditStudentRequiredMessage_pesel}"/>
                     <h:outputLabel value="#{bundle.EditStudentLabel_imie}" for="imie" />
                     <h:inputText id="imie" value="#{studentController.selected.imie}" title="#{bundle.EditStudentTitle_imie}" required="true" requiredMessage="#{bundle.EditStudentRequiredMessage_imie}"/>

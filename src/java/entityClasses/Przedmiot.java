@@ -109,7 +109,7 @@ public class Przedmiot implements Serializable {
 
     @Override
     public String toString() {
-        return "entityClasses.Przedmiot[ idPrzedmiotu=" + idPrzedmiotu + " ]";
+        return nazwa;
     }
     
 }

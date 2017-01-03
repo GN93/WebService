@@ -15,8 +15,6 @@
             </h:panelGroup>
             <h:form>
                 <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.CreateWynikiLabel_idWyniku}" for="idWyniku" />
-                    <h:inputText id="idWyniku" value="#{wynikiController.selected.idWyniku}" title="#{bundle.CreateWynikiTitle_idWyniku}" required="true" requiredMessage="#{bundle.CreateWynikiRequiredMessage_idWyniku}"/>
                     <h:outputLabel value="#{bundle.CreateWynikiLabel_data}" for="data" />
                     <h:inputText id="data" value="#{wynikiController.selected.data}" title="#{bundle.CreateWynikiTitle_data}" required="true" requiredMessage="#{bundle.CreateWynikiRequiredMessage_data}">
                         <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />

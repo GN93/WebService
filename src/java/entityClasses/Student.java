@@ -139,7 +139,7 @@ public class Student implements Serializable {
 
     @Override
     public String toString() {
-        return "entityClasses.Student[ idStudenta=" + idStudenta + " ]";
+        return imie + " "+ nazwisko + " ("+pesel+")" ;
     }
     
 }

@@ -15,10 +15,8 @@
             </h:panelGroup>
             <h:form>
                 <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.CreatePrzedmiotLabel_idPrzedmiotu}" for="idPrzedmiotu" />
-                    <h:inputText id="idPrzedmiotu" value="#{przedmiotController.selected.idPrzedmiotu}" title="#{bundle.CreatePrzedmiotTitle_idPrzedmiotu}" required="true" requiredMessage="#{bundle.CreatePrzedmiotRequiredMessage_idPrzedmiotu}"/>
-                    <h:outputLabel value="#{bundle.CreatePrzedmiotLabel_nazwa}" for="nazwa" />
-                    <h:inputText id="nazwa" value="#{przedmiotController.selected.nazwa}" title="#{bundle.CreatePrzedmiotTitle_nazwa}" required="true" requiredMessage="#{bundle.CreatePrzedmiotRequiredMessage_nazwa}"/>
+                   <h:outputLabel value="#{bundle.CreatePrzedmiotLabel_nazwa}" for="nazwa" />
+                   <h:inputText id="nazwa" value="#{przedmiotController.selected.nazwa}" title="#{bundle.CreatePrzedmiotTitle_nazwa}" required="true" requiredMessage="#{bundle.CreatePrzedmiotRequiredMessage_nazwa}"/>
                 </h:panelGrid>
                 <br />
                 <h:commandLink action="#{przedmiotController.create}" value="#{bundle.CreatePrzedmiotSaveLink}" />
