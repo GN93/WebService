@@ -28,7 +28,7 @@
                         </h:column>
                         <h:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListWynikiTitle_data}"/>
+                                <h:outputText value="#{bundle.ListWynikiData}"/>
                             </f:facet>
                             <h:outputText value="#{item.data}">
                                 <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
@@ -36,21 +36,21 @@
                         </h:column>
                         <h:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListWynikiTitle_idStudenta}"/>
+                                <h:outputText value="#{bundle.ListWynikiStudent}"/>
                             </f:facet>
-                            <h:outputText value="#{item.idStudenta}"/>
+                            <h:outputText value="#{item.idStudenta.imie} #{item.idStudenta.nazwisko} (#{item.idStudenta.pesel})"/>
                         </h:column>
                         <h:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListWynikiTitle_idPrzedmiotu}"/>
+                                <h:outputText value="#{bundle.CreatePrzedmiotName}"/>
                             </f:facet>
-                            <h:outputText value="#{item.idPrzedmiotu}"/>
+                            <h:outputText value="#{item.idPrzedmiotu.nazwa}"/>
                         </h:column>
                         <h:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListWynikiTitle_idOceny}"/>
+                                <h:outputText value="#{bundle.CreateWynikiName}"/>
                             </f:facet>
-                            <h:outputText value="#{item.idOceny}"/>
+                            <h:outputText value="#{item.idOceny.opis}"/>
                         </h:column>
                         <h:column>
                             <f:facet name="header">

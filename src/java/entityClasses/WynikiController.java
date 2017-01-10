@@ -2,8 +2,9 @@ package entityClasses;
 
 import entityClasses.util.JsfUtil;
 import entityClasses.util.PaginationHelper;
-
+import javax.annotation.security.*;
 import java.io.Serializable;
+import java.lang.*;
 import java.util.ResourceBundle;
 import javax.ejb.EJB;
 import javax.inject.Named;
@@ -70,7 +71,8 @@ public class WynikiController implements Serializable {
         selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
         return "View";
     }
-
+    
+    @RolesAllowed("AdminRoleee")
     public String prepareCreate() {
         current = new Wyniki();
         selectedItemIndex = -1;
@@ -87,13 +89,14 @@ public class WynikiController implements Serializable {
             return null;
         }
     }
-
+    
+    @RolesAllowed("AdminRole")
     public String prepareEdit() {
         current = (Wyniki) getItems().getRowData();
         selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
         return "Edit";
     }
-
+    
     public String update() {
         try {
             getFacade().edit(current);
@@ -104,7 +107,8 @@ public class WynikiController implements Serializable {
             return null;
         }
     }
-
+    
+    @RolesAllowed("AdminRole")
     public String destroy() {
         current = (Wyniki) getItems().getRowData();
         selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
@@ -229,5 +233,4 @@ public class WynikiController implements Serializable {
         }
 
     }
-
 }

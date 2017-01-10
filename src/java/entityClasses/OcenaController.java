@@ -5,6 +5,7 @@ import entityClasses.util.PaginationHelper;
 
 import java.io.Serializable;
 import java.util.ResourceBundle;
+
 import javax.ejb.EJB;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
@@ -15,6 +16,8 @@ import javax.faces.convert.FacesConverter;
 import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
 import javax.faces.model.SelectItem;
+import javax.annotation.security.*;
+
 
 @Named("ocenaController")
 @SessionScoped
@@ -76,7 +79,8 @@ public class OcenaController implements Serializable {
         selectedItemIndex = -1;
         return "Create";
     }
-
+    
+    @RolesAllowed("AdminRole")
     public String create() {
         try {
             getFacade().create(current);
@@ -87,13 +91,15 @@ public class OcenaController implements Serializable {
             return null;
         }
     }
-
+    
+    @RolesAllowed("AdminRole")
     public String prepareEdit() {
         current = (Ocena) getItems().getRowData();
         selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
         return "Edit";
     }
-
+    
+    @RolesAllowed("AdminRole")
     public String update() {
         try {
             getFacade().edit(current);
@@ -104,7 +110,8 @@ public class OcenaController implements Serializable {
             return null;
         }
     }
-
+    
+    @RolesAllowed("AdminRole")
     public String destroy() {
         current = (Ocena) getItems().getRowData();
         selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
