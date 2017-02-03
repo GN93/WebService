@@ -58,14 +58,14 @@
                             </f:facet>
                             <h:commandLink action="#{wynikiController.prepareView}" value="#{bundle.ListWynikiViewLink}"/>
                             <h:outputText value=" "/>
-                            <h:commandLink action="#{wynikiController.prepareEdit}" value="#{bundle.ListWynikiEditLink}"/>
+                            <h:commandLink action="#{wynikiController.prepareEdit}" value="#{bundle.ListWynikiEditLink}" rendered="#{request.isUserInRole('AdminRole')}"/>
                             <h:outputText value=" "/>
-                            <h:commandLink action="#{wynikiController.destroy}" value="#{bundle.ListWynikiDestroyLink}"/>
+                            <h:commandLink action="#{wynikiController.destroy}" value="#{bundle.ListWynikiDestroyLink}" rendered="#{request.isUserInRole('AdminRole')}"/>
                         </h:column>
                     </h:dataTable>
                 </h:panelGroup>
                 <br />
-                <h:commandLink action="#{wynikiController.prepareCreate}" value="#{bundle.ListWynikiCreateLink}"/>
+                <h:commandLink action="#{wynikiController.prepareCreate}" value="#{bundle.ListWynikiCreateLink}" rendered="#{request.isUserInRole('AdminRole')}"/>
                 <br />
                 <br />
                 <h:link outcome="/index" value="#{bundle.ListWynikiIndexLink}"/>

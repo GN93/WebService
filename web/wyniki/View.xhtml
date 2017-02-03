@@ -29,18 +29,17 @@
                     <h:outputText value="#{wynikiController.selected.idOceny}" title="#{bundle.ViewWynikiTitle_idOceny}"/>
                 </h:panelGrid>
                 <br />
-                <h:commandLink action="#{wynikiController.destroyAndView}" value="#{bundle.ViewWynikiDestroyLink}"/>
+                <h:commandLink action="#{wynikiController.destroyAndView}" value="#{bundle.ViewWynikiDestroyLink}" rendered="#{request.isUserInRole('AdminRole')}"/>
                 <br />
                 <br />
-                <h:link outcome="Edit" value="#{bundle.ViewWynikiEditLink}"/>
+                <h:link outcome="Edit" value="#{bundle.ViewWynikiEditLink}" rendered="#{request.isUserInRole('AdminRole')}"/>
                 <br />
-                <h:commandLink action="#{wynikiController.prepareCreate}" value="#{bundle.ViewWynikiCreateLink}" />
+                <h:commandLink action="#{wynikiController.prepareCreate}" value="#{bundle.ViewWynikiCreateLink}" rendered="#{request.isUserInRole('AdminRole')}" />
                 <br />
                 <h:commandLink action="#{wynikiController.prepareList}" value="#{bundle.ViewWynikiShowAllLink}"/>
                 <br />
                 <br />
                 <h:link outcome="/index" value="#{bundle.ViewWynikiIndexLink}"/>
-
             </h:form>
         </ui:define>
     </ui:composition>

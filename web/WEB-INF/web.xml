@@ -39,7 +39,6 @@
             <web-resource-name>User Page</web-resource-name>
             <description/>
             <url-pattern>/*</url-pattern>
-            <http-method>GET</http-method>
         </web-resource-collection>
         <auth-constraint>
             <description/>

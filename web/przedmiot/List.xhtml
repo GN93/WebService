@@ -38,14 +38,14 @@
                             </f:facet>
                             <h:commandLink action="#{przedmiotController.prepareView}" value="#{bundle.ListPrzedmiotViewLink}"/>
                             <h:outputText value=" "/>
-                            <h:commandLink action="#{przedmiotController.prepareEdit}" value="#{bundle.ListPrzedmiotEditLink}"/>
+                            <h:commandLink action="#{przedmiotController.prepareEdit}" value="#{bundle.ListPrzedmiotEditLink}" rendered="#{request.isUserInRole('AdminRole')}"/>
                             <h:outputText value=" "/>
-                            <h:commandLink action="#{przedmiotController.destroy}" value="#{bundle.ListPrzedmiotDestroyLink}"/>
+                            <h:commandLink action="#{przedmiotController.destroy}" value="#{bundle.ListPrzedmiotDestroyLink}" rendered="#{request.isUserInRole('AdminRole')}"/>
                         </h:column>
                     </h:dataTable>
                 </h:panelGroup>
                 <br />
-                <h:commandLink action="#{przedmiotController.prepareCreate}" value="#{bundle.ListPrzedmiotCreateLink}"/>
+                <h:commandLink action="#{przedmiotController.prepareCreate}" value="#{bundle.ListPrzedmiotCreateLink}" rendered="#{request.isUserInRole('AdminRole')}"/>
                 <br />
                 <br />
                 <h:link outcome="/index" value="#{bundle.ListPrzedmiotIndexLink}"/>

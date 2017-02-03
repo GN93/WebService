@@ -38,14 +38,14 @@
                             </f:facet>
                             <h:commandLink action="#{ocenaController.prepareView}" value="#{bundle.ListOcenaViewLink}"/>
                             <h:outputText value=" "/>
-                            <h:commandLink action="#{ocenaController.prepareEdit}" value="#{bundle.ListOcenaEditLink}"/>
+                            <h:commandLink action="#{ocenaController.prepareEdit}" value="#{bundle.ListOcenaEditLink}" rendered="#{request.isUserInRole('AdminRole')}"/>
                             <h:outputText value=" "/>
-                            <h:commandLink action="#{ocenaController.destroy}" value="#{bundle.ListOcenaDestroyLink}"/>
+                            <h:commandLink action="#{ocenaController.destroy}" value="#{bundle.ListOcenaDestroyLink}" rendered="#{request.isUserInRole('AdminRole')}"/>
                         </h:column>
                     </h:dataTable>
                 </h:panelGroup>
                 <br />
-                <h:commandLink action="#{ocenaController.prepareCreate}" value="#{bundle.ListOcenaCreateLink}"/>
+                <h:commandLink action="#{ocenaController.prepareCreate}" value="#{bundle.ListOcenaCreateLink}" rendered="#{request.isUserInRole('AdminRole')}"/>
                 <br />
                 <br />
                 <h:link outcome="/index" value="#{bundle.ListOcenaIndexLink}"/>

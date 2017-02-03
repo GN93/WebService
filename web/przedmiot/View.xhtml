@@ -21,12 +21,12 @@
                     <h:outputText value="#{przedmiotController.selected.nazwa}" title="#{bundle.ViewPrzedmiotTitle_nazwa}"/>
                 </h:panelGrid>
                 <br />
-                <h:commandLink action="#{przedmiotController.destroyAndView}" value="#{bundle.ViewPrzedmiotDestroyLink}"/>
+                <h:commandLink action="#{przedmiotController.destroyAndView}" value="#{bundle.ViewPrzedmiotDestroyLink}" rendered="#{request.isUserInRole('AdminRole')}"/>
                 <br />
                 <br />
-                <h:link outcome="Edit" value="#{bundle.ViewPrzedmiotEditLink}"/>
+                <h:link outcome="Edit" value="#{bundle.ViewPrzedmiotEditLink}" rendered="#{request.isUserInRole('AdminRole')}"/>
                 <br />
-                <h:commandLink action="#{przedmiotController.prepareCreate}" value="#{bundle.ViewPrzedmiotCreateLink}" />
+                <h:commandLink action="#{przedmiotController.prepareCreate}" value="#{bundle.ViewPrzedmiotCreateLink}" rendered="#{request.isUserInRole('AdminRole')}"/>
                 <br />
                 <h:commandLink action="#{przedmiotController.prepareList}" value="#{bundle.ViewPrzedmiotShowAllLink}"/>
                 <br />

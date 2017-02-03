@@ -21,12 +21,12 @@
                     <h:outputText value="#{ocenaController.selected.opis}" title="#{bundle.ViewOcenaTitle_opis}"/>
                 </h:panelGrid>
                 <br />
-                <h:commandLink action="#{ocenaController.destroyAndView}" value="#{bundle.ViewOcenaDestroyLink}"/>
+                <h:commandLink action="#{ocenaController.destroyAndView}" value="#{bundle.ViewOcenaDestroyLink}" rendered="#{request.isUserInRole('AdminRole')}"/>
                 <br />
                 <br />
-                <h:link outcome="Edit" value="#{bundle.ViewOcenaEditLink}"/>
+                <h:link outcome="Edit" value="#{bundle.ViewOcenaEditLink}" rendered="#{request.isUserInRole('AdminRole')}"/>
                 <br />
-                <h:commandLink action="#{ocenaController.prepareCreate}" value="#{bundle.ViewOcenaCreateLink}" />
+                <h:commandLink action="#{ocenaController.prepareCreate}" value="#{bundle.ViewOcenaCreateLink}" rendered="#{request.isUserInRole('AdminRole')}" />
                 <br />
                 <h:commandLink action="#{ocenaController.prepareList}" value="#{bundle.ViewOcenaShowAllLink}"/>
                 <br />

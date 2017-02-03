@@ -25,12 +25,12 @@
                     <h:outputText value="#{studentController.selected.nazwisko}" title="#{bundle.ViewStudentTitle_nazwisko}"/>
                 </h:panelGrid>
                 <br />
-                <h:commandLink action="#{studentController.destroyAndView}" value="#{bundle.ViewStudentDestroyLink}"/>
+                <h:commandLink action="#{studentController.destroyAndView}" value="#{bundle.ViewStudentDestroyLink}" rendered="#{request.isUserInRole('AdminRole')}"/>
                 <br />
                 <br />
-                <h:link outcome="Edit" value="#{bundle.ViewStudentEditLink}"/>
+                <h:link outcome="Edit" value="#{bundle.ViewStudentEditLink}" rendered="#{request.isUserInRole('AdminRole')}"/>
                 <br />
-                <h:commandLink action="#{studentController.prepareCreate}" value="#{bundle.ViewStudentCreateLink}" />
+                <h:commandLink action="#{studentController.prepareCreate}" value="#{bundle.ViewStudentCreateLink}" rendered="#{request.isUserInRole('AdminRole')}" />
                 <br />
                 <h:commandLink action="#{studentController.prepareList}" value="#{bundle.ViewStudentShowAllLink}"/>
                 <br />

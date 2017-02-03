@@ -50,14 +50,14 @@
                             </f:facet>
                             <h:commandLink action="#{studentController.prepareView}" value="#{bundle.ListStudentViewLink}"/>
                             <h:outputText value=" "/>
-                            <h:commandLink action="#{studentController.prepareEdit}" value="#{bundle.ListStudentEditLink}"/>
+                            <h:commandLink action="#{studentController.prepareEdit}" value="#{bundle.ListStudentEditLink}" rendered="#{request.isUserInRole('AdminRole')}"/>
                             <h:outputText value=" "/>
-                            <h:commandLink action="#{studentController.destroy}" value="#{bundle.ListStudentDestroyLink}"/>
+                            <h:commandLink action="#{studentController.destroy}" value="#{bundle.ListStudentDestroyLink}" rendered="#{request.isUserInRole('AdminRole')}"/>
                         </h:column>
                     </h:dataTable>
                 </h:panelGroup>
                 <br />
-                <h:commandLink action="#{studentController.prepareCreate}" value="#{bundle.ListStudentCreateLink}"/>
+                <h:commandLink action="#{studentController.prepareCreate}" value="#{bundle.ListStudentCreateLink}" rendered="#{request.isUserInRole('AdminRole')}"/>
                 <br />
                 <br />
                 <h:link outcome="/index" value="#{bundle.ListStudentIndexLink}"/>

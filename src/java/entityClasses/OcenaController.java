@@ -79,8 +79,7 @@ public class OcenaController implements Serializable {
         selectedItemIndex = -1;
         return "Create";
     }
-    
-    @RolesAllowed("AdminRole")
+
     public String create() {
         try {
             getFacade().create(current);
@@ -91,15 +90,13 @@ public class OcenaController implements Serializable {
             return null;
         }
     }
-    
-    @RolesAllowed("AdminRole")
+
     public String prepareEdit() {
         current = (Ocena) getItems().getRowData();
         selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
         return "Edit";
     }
-    
-    @RolesAllowed("AdminRole")
+
     public String update() {
         try {
             getFacade().edit(current);
@@ -110,8 +107,7 @@ public class OcenaController implements Serializable {
             return null;
         }
     }
-    
-    @RolesAllowed("AdminRole")
+
     public String destroy() {
         current = (Ocena) getItems().getRowData();
         selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();

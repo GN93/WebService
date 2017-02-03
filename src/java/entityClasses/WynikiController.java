@@ -16,6 +16,7 @@ import javax.faces.convert.FacesConverter;
 import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
 import javax.faces.model.SelectItem;
+import javax.jms.JMSException;
 
 @Named("wynikiController")
 @SessionScoped
@@ -29,6 +30,12 @@ public class WynikiController implements Serializable {
     private int selectedItemIndex;
 
     public WynikiController() {
+    }
+    
+    @EJB
+    private OcenaMessageProducer ocenaMessageProducer;
+    public void addMessageToQueue() throws JMSException {
+        ocenaMessageProducer.sendOcenaToQueue(current);
     }
 
     public Wyniki getSelected() {
@@ -72,7 +79,6 @@ public class WynikiController implements Serializable {
         return "View";
     }
     
-    @RolesAllowed("AdminRoleee")
     public String prepareCreate() {
         current = new Wyniki();
         selectedItemIndex = -1;
@@ -90,7 +96,6 @@ public class WynikiController implements Serializable {
         }
     }
     
-    @RolesAllowed("AdminRole")
     public String prepareEdit() {
         current = (Wyniki) getItems().getRowData();
         selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
@@ -108,7 +113,6 @@ public class WynikiController implements Serializable {
         }
     }
     
-    @RolesAllowed("AdminRole")
     public String destroy() {
         current = (Wyniki) getItems().getRowData();
         selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
